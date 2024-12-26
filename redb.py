@@ -1,4 +1,6 @@
-pip install mysql-connector-python
+import subprocess
+subprocess.check_call(["pip", "install", "mysql-connector-python"])
+
 import streamlit as st
 import pandas as pd
 import mysql.connector
