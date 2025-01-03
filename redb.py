@@ -18,14 +18,18 @@ def load_routes(file_mapping):
 # Database connection function
 def get_db_connection():
     try:
-        return mysql.connector.connect(
-            host="127.0.0.1",
-            user="root",
-            password="Amphi@55",
-            database="RED_BUS_DETAILS"
+        conn = mysql.connector.connect(
+            host="127.0.0.1",        # IP address of the MySQL server
+            port=3306,               # MySQL port
+            user="root",             # MySQL username
+            password="Amphi@55",     # MySQL password
+            database="RED_BUS_DETAILS"  # Name of the database you want to connect to
         )
+        if conn.is_connected():
+            print("Connection successful")
+        return conn
     except mysql.connector.Error as e:
-        st.error(f"Error connecting to the database: {e}")
+        print(f"Error connecting to the database: {e}")
         return None
 
 # Query execution function
