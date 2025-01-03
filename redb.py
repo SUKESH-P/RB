@@ -19,7 +19,7 @@ def load_routes(file_mapping):
 def get_db_connection():
     try:
         return mysql.connector.connect(
-            host="localhost",
+            host="localhost:3306",
             user="root",
             password="Amphi@55",
             database="RED_BUS_DETAILS"
